@@ -1,7 +1,10 @@
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 import { HealthIndicator } from "./HealthIndicator";
 
 export const HealthyEating = () => {
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
   return (
     <Stack
       width="100%"
@@ -29,16 +32,16 @@ export const HealthyEating = () => {
       <Typography
         variant="h2"
         sx={{
-          margin: "0 auto",
           fontWeight: "bold",
           color: "primary.100",
-          fontSize: "calc(4rem + 1vw)",
+          fontSize: "calc(1rem + 4vw)",
+          margin: isMobile ? "0 0 0 2rem" : "0 auto",
         }}
       >
         3 Step For<span style={{ color: "#5a2f27" }}>Healthy Eating</span>
       </Typography>
       <Stack
-        direction="row"
+        direction={isMobile ? "column" : "row"}
         justifyContent="space-around"
         sx={{ marginTop: "1rem" }}
       >

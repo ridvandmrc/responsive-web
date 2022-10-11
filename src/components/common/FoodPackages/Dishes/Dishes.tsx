@@ -1,12 +1,16 @@
 import { FC } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 
 export const Dishes: FC<{ food: string }> = ({ food }) => {
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
   return (
     <Stack
       sx={{
         backgroundColor: "primary.main",
-        width: "25vw",
+        width: isMobile ? "100%" : "25vw",
+        marginTop: isMobile ? "4rem" : 0,
         alignItems: "center",
         paddingBottom: "2rem",
       }}

@@ -1,14 +1,16 @@
-import { Stack, Typography } from "@mui/material";
-
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 
 export const ClientSays = () => {
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
   return (
     <Stack
       sx={{
         position: "sticky",
         top: 0,
         backgroundColor: "primary.main",
-        paddingBottom:'2rem',
+        paddingBottom: "2rem",
       }}
     >
       <Typography
@@ -23,24 +25,29 @@ export const ClientSays = () => {
         Client <span style={{ color: "white" }}> Says</span>
       </Typography>
       <Stack
-        direction="row"
+        direction={isMobile ? "column" : "row"}
         sx={{
           justifyContent: "right",
           alignItems: "center",
-          marginRight: "4rem",
+          marginRight: isMobile ? "0" : "4rem",
+          marginTop: isMobile ? "4rem" : "0",
         }}
       >
         <Stack
           sx={{
-            width: "30%",
+            width: isMobile ? "90%" : "30%",
             backgroundColor: "background.paper",
-            marginRight: "2rem",
-            padding: "0 3rem 3rem 3rem",
-            color:'primary.main',
-            fontWeight:'bold'
+            marginRight: isMobile ? "0" : "2rem",
+            padding: isMobile ? "0 1rem 2rem 1rem " : "0 3rem 3rem 3rem",
+            color: "primary.main",
+            fontWeight: "bold",
+            borderRadius: "1rem",
+            boxSizing: "border-box",
           }}
         >
-          <Stack sx={{ width: "20%", margin: "-10% auto 0 auto" }}>
+          <Stack
+            sx={{ width: "20%", minWidth: "4rem", margin: "-10% auto 0 auto" }}
+          >
             <img src="./client.png" alt="foto" />
           </Stack>
           <Typography
@@ -60,8 +67,9 @@ export const ClientSays = () => {
         </Stack>
         <Stack
           sx={{
-            width: "40%",
-            minWidth:'10rem'
+            width: isMobile ? "70%" : "40%",
+            minWidth: "10rem",
+            marginTop: isMobile ? "4rem" : 0,
           }}
         >
           <img src="./food4.png" alt="food4" />

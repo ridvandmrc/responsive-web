@@ -1,8 +1,13 @@
-import { Typography } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import { Stack } from "@mui/system";
 import { Dishes } from "./Dishes";
 
 export const FoodPackages = () => {
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
+
+  console.log("isMobile: ", isMobile);
   return (
     <Stack
       sx={{
@@ -18,7 +23,7 @@ export const FoodPackages = () => {
           margin: "1rem auto",
           color: "primary.100",
           fontWeight: 700,
-          fontSize: "calc(7vw)",
+          fontSize: "calc(1rem + 5vw)",
         }}
       >
         Food<span style={{ color: "#5a2f27" }}>Packages</span>
@@ -30,7 +35,7 @@ export const FoodPackages = () => {
           color: "primary.main",
           margin: "0 auto",
           fontWeight: "bold",
-          fontSize: "calc(2vw)",
+          fontSize: "calc(1rem + 1vw)",
         }}
       >
         There are many variations of passages of Lorem Ipsum available, but the
@@ -38,7 +43,7 @@ export const FoodPackages = () => {
       </Typography>
 
       <Stack
-        direction="row"
+        direction={isMobile ? "column" : "row"}
         sx={{
           width: "100%",
           justifyContent: "space-around",

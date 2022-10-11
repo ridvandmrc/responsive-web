@@ -1,13 +1,17 @@
 import { FC } from "react";
-import { Stack, Typography } from "@mui/material";
+import { Stack, Typography, useMediaQuery } from "@mui/material";
 
 export const HealthIndicator: FC<{ order: number }> = ({ order }) => {
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
   return (
     <Stack
       sx={{
-        width: "25vw",
-        minHeight:'25vw',
-        padding: "2vw",
+        width: isMobile ? "90%" : "25vw",
+        margin: isMobile ? "1rem auto" : 0,
+        minHeight: "25vw",
+        padding: "calc(1rem + 1vw)",
         backgroundColor: "primary.100",
         boxSizing: "border-box",
         borderTopRightRadius: "1.5rem",
@@ -20,8 +24,8 @@ export const HealthIndicator: FC<{ order: number }> = ({ order }) => {
           borderRadius: "50%",
           width: "3vw",
           height: "3vw",
-          maxWidth:'100px',
-          maxHeight:'100px',
+          maxWidth: "100px",
+          maxHeight: "100px",
           minWidth: "30px",
           minHeight: "30px",
           backgroundColor: "primary.main",
@@ -33,8 +37,13 @@ export const HealthIndicator: FC<{ order: number }> = ({ order }) => {
           top: "-1vw",
         }}
       >
-        <Typography sx={{ color: "background.paper", fontWeight: "bold",
-          fontSize:'calc(1vw)' }}>
+        <Typography
+          sx={{
+            color: "background.paper",
+            fontWeight: "bold",
+            fontSize: "calc(0.5rem + 1vw)",
+          }}
+        >
           {order}
         </Typography>
       </Stack>
@@ -43,7 +52,7 @@ export const HealthIndicator: FC<{ order: number }> = ({ order }) => {
         sx={{
           color: "background.paper",
           fontWeight: "bold",
-          fontSize:'calc(0.3rem + 1vw)'
+          fontSize: "calc(1rem)",
         }}
       >
         There are many variations of passages of Lorem Ipsum available, but the

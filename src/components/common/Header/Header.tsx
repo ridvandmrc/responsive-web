@@ -1,14 +1,15 @@
-import { Button, Stack, Typography } from "@mui/material";
+import { Button, Stack, Typography, useMediaQuery } from "@mui/material";
 import { Login } from "../Login";
 
 export const Header = () => {
+  const isMobile = useMediaQuery((theme) => (theme as any).breakpoints.down("sm"));
   return (
     <Stack
-      direction="row"
+      direction={isMobile ? "column" : "row"}
       justifyContent="center"
       alignItems="center"
       width={1}
-      minWidth="500px"
+      minWidth="200px"
       sx={{
         backgroundColor: "background.default",
         padding: "1rem",
@@ -18,7 +19,7 @@ export const Header = () => {
         height: "100vh",
       }}
     >
-      <Stack width="30vw" marginRight="2rem">
+      <Stack width={isMobile ? "80vw" : "30vw"} marginRight="2rem">
         <Typography
           variant="h2"
           sx={{ color: "primary.main", fontSize: "calc(1rem + 5vw)" }}
