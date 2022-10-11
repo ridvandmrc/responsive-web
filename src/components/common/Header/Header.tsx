@@ -2,7 +2,9 @@ import { Button, Stack, Typography, useMediaQuery } from "@mui/material";
 import { Login } from "../Login";
 
 export const Header = () => {
-  const isMobile = useMediaQuery((theme) => (theme as any).breakpoints.down("sm"));
+  const isMobile = useMediaQuery((theme) =>
+    (theme as any).breakpoints.down("sm")
+  );
   return (
     <Stack
       direction={isMobile ? "column" : "row"}
@@ -14,7 +16,7 @@ export const Header = () => {
         backgroundColor: "background.default",
         padding: "1rem",
         boxSizing: "border-box",
-        position: "sticky",
+        position: isMobile ? "static" : "sticky",
         top: "0",
         height: "100vh",
       }}

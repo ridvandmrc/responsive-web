@@ -9,12 +9,11 @@ export const HealthyEating = () => {
     <Stack
       width="100%"
       sx={{
-        position: "sticky",
+        position: isMobile ? "static" : "sticky",
         top: 0,
         backgroundColor: "background.paper",
         padding: "1rem 0",
-        minHeight: "30vw",
-        height: "100vh",
+        height: isMobile ? "fit-content" : "100vh",
         boxSizing: "border-box",
       }}
     >

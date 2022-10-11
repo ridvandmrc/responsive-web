@@ -8,7 +8,7 @@ export const ClientSays = () => {
     <Stack
       sx={{
         position: "sticky",
-        top: 0,
+        top: "0",
         backgroundColor: "primary.main",
         paddingBottom: "2rem",
       }}
@@ -27,7 +27,7 @@ export const ClientSays = () => {
       <Stack
         direction={isMobile ? "column" : "row"}
         sx={{
-          justifyContent: "right",
+          justifyContent: "center",
           alignItems: "center",
           marginRight: isMobile ? "0" : "4rem",
           marginTop: isMobile ? "4rem" : "0",
@@ -46,7 +46,7 @@ export const ClientSays = () => {
           }}
         >
           <Stack
-            sx={{ width: "20%", minWidth: "4rem", margin: "-10% auto 0 auto" }}
+            sx={{ width: "10vw", minWidth: "70px", margin: "-10% auto 0 auto" }}
           >
             <img src="./client.png" alt="foto" />
           </Stack>
@@ -67,8 +67,7 @@ export const ClientSays = () => {
         </Stack>
         <Stack
           sx={{
-            width: isMobile ? "70%" : "40%",
-            minWidth: "10rem",
+            width: isMobile ? "70vw" : "40vw",
             marginTop: isMobile ? "4rem" : 0,
           }}
         >
