@@ -1,5 +1,5 @@
 import React from "react";
-import { FoodPackages, Header, HealthyEating } from "@components/common";
+import { ClientSays, FoodPackages, Header, HealthyEating } from "@components/common";
 
 function App() {
   return (
@@ -7,6 +7,7 @@ function App() {
       <Header />
       <FoodPackages />
       <HealthyEating />
+      <ClientSays />
     </>
   );
 }
